@@ -65,4 +65,8 @@ public class Cidade implements Serializable{
     public String toString() {
         return "Cidade{" + "id=" + id + ", nome=" + nome + ", uf=" + uf + '}';
     }
+    
+    public boolean equals(Cidade cl){
+        return this.equals((cl.nome == this.nome) && (cl.uf == this.uf));
+    }
 }
