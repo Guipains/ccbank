@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Novo Endereco</title>
+    </h:head>
+    <h:body>
+        <h1>Novo Endereco</h1>
+        <h:form>
+            Logradouro: <h:inputText id="logradouro" value="#{endereco.logradouro}"/>
+            UF: <h:inputText id="id" value="#{conta.pessoaId}"/>
+            
+            <h:commandButton value="Salvar" action="#{contaMB.inserir()}"/> 
+        </h:form>
+    </h:body>
+</html>

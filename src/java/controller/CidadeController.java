@@ -9,10 +9,10 @@ import dao.CidadeDao;
 import domain.Cidade;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
-@ManagedBean
-@SessionScoped
+@ManagedBean(name = "cidadeMB")
+@RequestScoped
 public class CidadeController implements Serializable {
     
     private Cidade cidade;
@@ -25,7 +25,7 @@ public class CidadeController implements Serializable {
     
     public String inserir(){
         cidadeDao.insert(cidade);
-        return "index.xhtml";
+        return "../index.xhtml";
     }
 
     public Cidade getCidade() {

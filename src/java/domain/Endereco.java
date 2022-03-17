@@ -6,6 +6,7 @@
 package domain;
 
 import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,14 +14,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -28,15 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "endereco")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "Endereco.findAll", query = "SELECT e FROM Endereco e")
-    , @NamedQuery(name = "Endereco.findById", query = "SELECT e FROM Endereco e WHERE e.id = :id")
-    , @NamedQuery(name = "Endereco.findByLogradouro", query = "SELECT e FROM Endereco e WHERE e.logradouro = :logradouro")
-    , @NamedQuery(name = "Endereco.findByNumero", query = "SELECT e FROM Endereco e WHERE e.numero = :numero")
-    , @NamedQuery(name = "Endereco.findByComplemento", query = "SELECT e FROM Endereco e WHERE e.complemento = :complemento")
-    , @NamedQuery(name = "Endereco.findByBairro", query = "SELECT e FROM Endereco e WHERE e.bairro = :bairro")
-    , @NamedQuery(name = "Endereco.findByCep", query = "SELECT e FROM Endereco e WHERE e.cep = :cep")})
+@ManagedBean(name = "endereco")
 public class Endereco implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,27 +37,33 @@ public class Endereco implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
+    
     @Column(name = "logradouro")
     private String logradouro;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
+    
     @Column(name = "numero")
     private String numero;
     @Size(max = 45)
+    
     @Column(name = "complemento")
     private String complemento;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
+    
     @Column(name = "bairro")
     private String bairro;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 9)
+    
     @Column(name = "cep")
     private String cep;
     @ManyToOne(optional = false)
+    
     private Cidade cidade;
     @JoinColumn(name = "pessoa_id", referencedColumnName = "id")
     @ManyToOne(optional = false)

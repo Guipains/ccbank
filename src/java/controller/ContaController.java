@@ -10,10 +10,10 @@ import domain.Conta;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean
+@ManagedBean(name = "contaMB")
 @SessionScoped
 public class ContaController {
-   private Conta cidade;
+   private Conta conta;
     private final ContaDao contaDao;
     
 
@@ -22,11 +22,11 @@ public class ContaController {
     }
     
     public String inserir(){
-        contaDao.insert(cidade);
+        contaDao.insert(conta);
         return "index.xhtml";
     }
 
     public Conta getCidade() {
-        return cidade;
+        return conta;
     } 
 }

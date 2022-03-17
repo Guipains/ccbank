@@ -4,10 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Aluno/Desktop/ccbank/web/index.xhtml</file>
-            <file>file:/C:/Users/Aluno/Desktop/ccbank/src/java/dao/CidadeDao.java</file>
-            <file>file:/C:/Users/Aluno/Desktop/ccbank/src/java/controller/CidadeController.java</file>
-            <file>file:/C:/Users/Aluno/Desktop/ccbank/src/java/dao/ContaDao.java</file>
-            <file>file:/C:/Users/Aluno/Desktop/ccbank/src/java/controller/ContaController.java</file>
+            <file>file:/C:/Users/Aluno/Desktop/ccbank/src/java/domain/Endereco.java</file>
+            <file>file:/C:/Users/Aluno/Desktop/ccbank/web/conta/novo.xhtml</file>
+            <file>file:/C:/Users/Aluno/Desktop/ccbank/web/endereco/novo.xhtml</file>
         </group>
     </open-files>
 </project-private>
