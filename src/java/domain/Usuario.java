@@ -36,22 +36,21 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "login")
-    
     private String login;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "senha")
-    
     private String senha;
-    @NotNull
     
+    @NotNull
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId")
     private List<Pessoa> pessoaList;
 

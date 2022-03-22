@@ -13,10 +13,14 @@ and open the template in the editor.
     <h:body>
         <h1>Novo Endereco</h1>
         <h:form>
-            Logradouro: <h:inputText id="logradouro" value="#{endereco.logradouro}"/>
-            UF: <h:inputText id="id" value="#{conta.pessoaId}"/>
+            Logradouro: <h:inputText id="logradouro" value="#{endereco.logradouro}"/><br/>
+            Numero: <h:inputText id="numero" value="#{endereco.numero}"/><br/>
+            Complemento: <h:inputText id="complemento" value="#{endereco.complemento}"/><br/>
+            Bairro: <h:inputText id="bairro" value="#{endereco.bairro}"/><br/>
+            CEP: <h:inputText id="cep" value="#{endereco.cep}"/><br/>
+            ID pessoa: <h:inputText id="idpessoa" value="#{endereco.pessoaId}"/><br/>
             
-            <h:commandButton value="Salvar" action="#{contaMB.inserir()}"/> 
+            <h:commandButton value="Salvar" action="#{enderecoMB.inserir()}"/> 
         </h:form>
     </h:body>
 </html>

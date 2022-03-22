@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Nova Pessoa</title>
+    </h:head>
+    <h:body>
+        <h1>Nova Pessoa</h1>
+        <h:form>
+            Nome: <h:inputText id="nome" value="#{pessoa.nome}"/><br/>
+            Telefone: <h:inputText id="telefone" value="#{pessoa.telefone}"/><br/>
+            Email: <h:inputText id="email" value="#{pessoa.email}"/><br/>
+            Tipo de pessoa: <h:inputText id="tipodepessoa" value="#{pessoa.tipoPessoa}"/><br/>
+            CPF: <h:inputText id="cpf" value="#{pessoa.cpf}"/><br/>
+            CNPJ: <h:inputText id="cnpj" value="#{pessoa.cnpj}"/><br/>
+            Data Nascimento: <h:inputText id="datanascimento" value="#{pessoa.dataNascimento}"/><br/>
+            Sexo: <h:inputText id="sexo" value="#{pessoa.sexo}"/><br/>
+            
+            <h:commandButton value="Salvar" action="#{pessoaMB.inserir()}"/> 
+        </h:form>
+    </h:body>
+</html>

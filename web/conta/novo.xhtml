@@ -13,8 +13,9 @@ and open the template in the editor.
     <h:body>
         <h1>Nova Conta</h1>
         <h:form>
-            Nome: <h:inputText id="numero" value="#{conta.numero}"/>
-            UF: <h:inputText id="id" value="#{conta.pessoaId}"/>
+            Nome: <h:inputText id="numero" value="#{conta.numero}"/><br/>
+            Limite: <h:inputText id="lmite" value="#{conta.limite}"/><br/>
+            ID da pessoa: <h:inputText id="id" value="#{conta.pessoaId}"/><br/>
             
             <h:commandButton value="Salvar" action="#{contaMB.inserir()}"/> 
         </h:form>

@@ -39,33 +39,34 @@ public class Historico implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 1)
     @Column(name = "operacao")
-    
     private String operacao;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "tipoMovimento")
-    
     private String tipoMovimento;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "dataHora")
     @Temporal(TemporalType.TIMESTAMP)
-    
     private Date dataHora;
+    
     @Basic(optional = false)
     @NotNull
     @Column(name = "valor")
-    
     private double valor;
+    
     @Size(max = 500)
     @Column(name = "observacao")
-    
     private String observacao;
+    
     @JoinColumn(name = "conta_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Conta contaId;

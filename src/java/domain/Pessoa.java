@@ -41,54 +41,53 @@ public class Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    
     private Integer id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "nome")
-    
     private String nome;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "telefone")
-    
     private String telefone;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "email")
-    
     private String email;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 1)
     @Column(name = "tipoPessoa")
-    
     private String tipoPessoa;
+    
     @Size(max = 14)
     @Column(name = "cpf")
-    
     private String cpf;
+    
     @Size(max = 18)
     @Column(name = "cnpj")
-    
     private String cnpj;
+    
     @Column(name = "dataNascimento")
     @Temporal(TemporalType.DATE)
-    
     private Date dataNascimento;
+    
     @Size(max = 1)
     @Column(name = "sexo")
-    
     private String sexo;
+    
     @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    
     private Usuario usuarioId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoaId")
     
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoaId")
     private List<Endereco> enderecoList;
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pessoaId")

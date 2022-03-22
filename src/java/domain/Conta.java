@@ -57,8 +57,8 @@ public class Conta implements Serializable {
     
     @JoinColumn(name = "pessoa_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    
     private Pessoa pessoaId;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "contaId")
     private List<Historico> historicoList;
 
