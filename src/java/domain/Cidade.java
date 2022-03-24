@@ -1,7 +1,6 @@
 package domain;
 
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +11,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@ManagedBean(name = "cidade")
 @Table(name="cidade")
 public class Cidade implements Serializable{
 
