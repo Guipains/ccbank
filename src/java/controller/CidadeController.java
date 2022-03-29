@@ -7,6 +7,7 @@ package controller;
 
 import domain.Cidade;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -32,8 +33,14 @@ public class CidadeController implements Serializable {
         return "listar.xhtml";
     }
     
-    public List<Cidade> gettodasascidades(){
-        return null;
+    public String editar(Cidade cidade){
+        this.cidade = cidade;
+        
+        return "novo.xhtml";
+    }
+    
+    public List<Cidade> getTodasAsCidades(){
+        return cidadeService.listartodasascidades();
     }
 
      public Cidade getCidade() {

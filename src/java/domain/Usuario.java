@@ -27,8 +27,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "usuario")
-@ManagedBean(name = "usuario")
-
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;

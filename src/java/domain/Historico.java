@@ -29,8 +29,6 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "historico")
-@ManagedBean(name = "historico")
-
 public class Historico implements Serializable {
 
     private static final long serialVersionUID = 1L;

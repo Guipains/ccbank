@@ -7,6 +7,7 @@ package service;
 
 import dao.CidadeDao;
 import domain.Cidade;
+import java.util.List;
 
 /**
  *
@@ -22,5 +23,8 @@ public class CidadeService {
     
     public void inserir(Cidade cidade){
         cidadeDao.insert(cidade);
+    }
+    public List<Cidade> listartodasascidades(){
+        return cidadeDao.findAll();
     }
 }
