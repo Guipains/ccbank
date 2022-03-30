@@ -6,7 +6,6 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:commandButton action="#{cidadeMB.novo()}" value="Adicionar Cidade"/>
             <h:dataTable value="#{cidadeMB.todasAsCidades}" var="cidade">
                 <h:column>
                     <f:facet name="header">Cidade</f:facet>
@@ -19,7 +18,11 @@
                 <h:column>
                     <h:commandLink value="editar" action="#{cidadeMB.editar(cidade)}"/>
                 </h:column>
+                <h:column>
+                    <h:commandLink value="excluir" action="#{cidadeMB.excluir(cidade)}"/>
+                </h:column>
             </h:dataTable>
+            <h:commandButton action="#{cidadeMB.novo()}" value="Adicionar Cidade"/>
         </h:form>
     </h:body>
 </html>

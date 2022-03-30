@@ -7,14 +7,13 @@ package controller;
 
 import domain.Cidade;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import service.CidadeService;
 
 @ManagedBean(name = "cidadeMB")
-@RequestScoped
+@SessionScoped
 public class CidadeController implements Serializable {
     private CidadeService cidadeService;
     private Cidade cidade;
@@ -24,19 +23,30 @@ public class CidadeController implements Serializable {
         cidade = new Cidade();
     }
     
-    public String novo(){
-        return "novo.xhtml";
+    public String inserirOuAtualizar(){
+        if((cidade.getId() == null)){
+            cidadeService.inserir(cidade);
+        }else{
+            cidadeService.atualizar(cidade);
+        }
+        return "listar.xhtml";
     }
     
-    public String inserir(){
-        cidadeService.inserir(cidade);
-        return "listar.xhtml";
+    public String novo(){
+        cidade = new Cidade();
+        return "novo.xhtml";
     }
     
     public String editar(Cidade cidade){
         this.cidade = cidade;
         
         return "novo.xhtml";
+    }
+    public String excluir(Cidade cidade){
+        this.cidade = cidade;
+        cidadeService.excluir(cidade);
+        
+        return "listar.xhtml";
     }
     
     public List<Cidade> getTodasAsCidades(){

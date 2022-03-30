@@ -24,6 +24,12 @@ public class CidadeService {
     public void inserir(Cidade cidade){
         cidadeDao.insert(cidade);
     }
+    public void atualizar(Cidade cidade){
+        cidadeDao.update(cidade);
+    }
+    public void excluir(Cidade cidade){
+        cidadeDao.delete(cidade);
+    }
     public List<Cidade> listartodasascidades(){
         return cidadeDao.findAll();
     }
