@@ -7,16 +7,21 @@
     <h:body>
         <h1>Nova Cidade</h1>
         <h:form>
-            Nome: <h:inputText id="nome" value="#{cidadeMB.cidade.nome}">
+            <f:view id="view" contentType="text/html">
+                <f:loadBundle basename="mensagem.Mensagens" var="msg"/>
+                <h:outputLabel for="nome" value="#{msg.nome}"/>
+                <h:inputText id="nome" value="#{cidadeMB.cidade.nome}">
                 <f:validateRequired/>
                 <f:validateLength minimum="3" maximum="255"/>
                 </h:inputText><br/>
-                UF: <h:inputText id="uf" value="#{cidadeMB.cidade.uf}">
+                <h:outputLabel for="nome" value="#{msg.uf}"/>
+                <h:inputText id="uf" value="#{cidadeMB.cidade.uf}">
                 <f:validateRequired/>
                 <f:validator validatorId="UFvalidator"/>
                 </h:inputText><br/>
             
-                <h:commandButton value="Salvar" action="#{cidadeMB.inserirOuAtualizar()}"/> 
+                <h:commandButton value="Salvar" action="#{cidadeMB.inserirOuAtualizar()}"/>
+            </f:view>
         </h:form>
     </h:body>
 </html>
