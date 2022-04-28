@@ -7,7 +7,6 @@ package domain;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

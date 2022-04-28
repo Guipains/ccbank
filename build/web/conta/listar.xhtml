@@ -6,13 +6,34 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Listar Contas</title>
     </h:head>
     <h:body>
         <h:form>
-        <h:commandButton action="novo" value="Adicionar Conta"/>
+            <h:dataTable value="#{contaMB.todasAsContas}" var="conta">
+                <h:column>
+                    <f:facet name="header">Numero</f:facet>
+                    #{conta.numero}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Limite</f:facet>
+                    #{conta.limite}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Saldo</f:facet>
+                    #{conta.saldo}
+                </h:column>
+                <h:column>
+                    <h:commandLink value="editar" action="#{contaMB.editar(conta)}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="excluir" action="#{contaMB.excluir(conta)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton action="#{contaMB.novo()}" value="Adicionar Conta"/>
         </h:form>
     </h:body>
 </html>

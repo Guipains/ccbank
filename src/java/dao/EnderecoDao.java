@@ -22,7 +22,7 @@ public class EnderecoDao {
     public List<Endereco> findAll(){
         session.beginTransaction();
         try{
-            List<Endereco> enderecos = session.createQuery("from Cidade order by nome").list();
+            List<Endereco> enderecos = session.createQuery("from Endereco order by nome").list();
             session.getTransaction().commit();
             return enderecos;
         }catch(Exception e){
@@ -34,7 +34,7 @@ public class EnderecoDao {
     public Endereco findById(Integer id){
         session.beginTransaction();
         try{
-            Endereco endereco = (Endereco)session.createQuery("from Cidade where id = " + id).uniqueResult();
+            Endereco endereco = (Endereco)session.createQuery("from Endereco where id = " + id).uniqueResult();
             session.getTransaction().commit();
             return endereco;
         }catch(Exception e){

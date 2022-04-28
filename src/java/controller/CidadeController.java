@@ -19,8 +19,8 @@ public class CidadeController implements Serializable {
     private Cidade cidade;
 
     public CidadeController() {
-        cidadeService = new CidadeService();
         cidade = new Cidade();
+        cidadeService = new CidadeService();
     }
     
     public String inserirOuAtualizar(){
@@ -42,6 +42,7 @@ public class CidadeController implements Serializable {
         
         return "novo.xhtml";
     }
+    
     public String excluir(Cidade cidade){
         this.cidade = cidade;
         cidadeService.excluir(cidade);
@@ -59,6 +60,5 @@ public class CidadeController implements Serializable {
 
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
-    }
-    
+    }  
 }

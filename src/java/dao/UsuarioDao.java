@@ -20,7 +20,7 @@ public class UsuarioDao {
     public List<Usuario> findAll(){
         session.beginTransaction();
         try{
-            List<Usuario> usuarios = session.createQuery("from Cidade order by nome").list();
+            List<Usuario> usuarios = session.createQuery("from Usuario order by nome").list();
             session.getTransaction().commit();
             return usuarios;
         }catch(Exception e){
@@ -32,7 +32,7 @@ public class UsuarioDao {
     public Usuario findById(Integer id){
         session.beginTransaction();
         try{
-            Usuario usuario = (Usuario)session.createQuery("from Cidade where id = " + id).uniqueResult();
+            Usuario usuario = (Usuario)session.createQuery("from Usuario where id = " + id).uniqueResult();
             session.getTransaction().commit();
             return usuario;
         }catch(Exception e){

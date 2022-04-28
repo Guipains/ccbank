@@ -11,7 +11,7 @@ public class ContaDao {
     public List<Conta> findAll(){
         session.beginTransaction();
         try{
-            List<Conta> contas = session.createQuery("from Cidade order by nome").list();
+            List<Conta> contas = session.createQuery("from Conta order by nome").list();
             session.getTransaction().commit();
             return contas;
         }catch(Exception e){
@@ -23,7 +23,7 @@ public class ContaDao {
     public Conta findById(Integer id){
         session.beginTransaction();
         try{
-            Conta conta = (Conta)session.createQuery("from Cidade where id = " + id).uniqueResult();
+            Conta conta = (Conta)session.createQuery("from Conta where id = " + id).uniqueResult();
             session.getTransaction().commit();
             return conta;
         }catch(Exception e){

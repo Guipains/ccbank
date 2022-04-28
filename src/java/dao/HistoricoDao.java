@@ -20,7 +20,7 @@ public class HistoricoDao {
     public List<Historico> findAll(){
         session.beginTransaction();
         try{
-            List<Historico> historicos = session.createQuery("from Cidade order by nome").list();
+            List<Historico> historicos = session.createQuery("from Historico order by nome").list();
             session.getTransaction().commit();
             return historicos;
         }catch(Exception e){
@@ -32,7 +32,7 @@ public class HistoricoDao {
     public Historico findById(Integer id){
         session.beginTransaction();
         try{
-            Historico historico = (Historico)session.createQuery("from Cidade where id = " + id).uniqueResult();
+            Historico historico = (Historico)session.createQuery("from Historico where id = " + id).uniqueResult();
             session.getTransaction().commit();
             return historico;
         }catch(Exception e){
