@@ -5,10 +5,11 @@
  */
 package controller;
 
-import dao.PessoaDao;
 import domain.Pessoa;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import service.PessoaService;
 
 /**
  *
@@ -19,19 +20,49 @@ import javax.faces.bean.RequestScoped;
 public class PessoaController {
     
     private Pessoa pessoa;
-    private final PessoaDao pessoaDao;
+    private PessoaService pessoaService;
     
 
     public PessoaController() {
-        this.pessoaDao = new PessoaDao();
+        this.pessoa = new Pessoa();
+        this.pessoaService = new PessoaService();
     }
     
-    public String inserir(){
-        pessoaDao.insert(pessoa);
-        return "index.xhtml";
+    public String inserirOuAtualizar(){
+        if((pessoa.getId() == null)){
+            pessoaService.inserir(pessoa);
+        }else{
+            pessoaService.atualizar(pessoa);
+        }
+        return "listar.xhtml";
+    }
+     public String novo(){
+        pessoa = new Pessoa();
+        return "novo.xhtml";
+    }
+    
+    public String editar(Pessoa historico){
+        this.pessoa = historico;
+        
+        return "novo.xhtml";
+    }
+    
+    public String excluir(Pessoa historico){
+        this.pessoa = historico;
+        pessoaService.excluir(historico);
+        
+        return "listar.xhtml";
+    }
+    
+    public List<Pessoa> getTodosAsPessoas(){
+        return pessoaService.listartodasaspessoas();
     }
 
-    public Pessoa getCidade() {
+    public Pessoa getPessoa() {
         return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 }

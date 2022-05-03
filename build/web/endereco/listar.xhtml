@@ -6,13 +6,50 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Listar Endereços</title>
     </h:head>
     <h:body>
         <h:form>
-        <h:commandButton action="novo" value="Adicionar Endereco"/>
+            <h:dataTable value="#{enderecoMB.todasAsContas}" var="endereco">
+                <h:column>
+                    <f:facet name="header">Logradouro</f:facet>
+                        #{enderecoMB.endereco.logradouro}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Numero</f:facet>
+                        #{enderecoMB.endereco.numero}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Complemento</f:facet>
+                        #{enderecoMB.endereco.complemento}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Bairro</f:facet>
+                        #{enderecoMB.endereco.bairro}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CEP</f:facet>
+                        #{enderecoMB.endereco.cep}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cidade</f:facet>
+                        #{enderecoMB.endereco.cidade}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Pessoa</f:facet>
+                        #{enderecoMB.endereco.pessoaId}
+                </h:column>
+                <h:column>
+                    <h:commandLink value="editar" action="#{enderecoMB.editar(endereco)}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="excluir" action="#{enderecoMB.excluir(endereco)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton action="#{enderecoMB.novo()}" value="Adicionar Endereco"/>
         </h:form>
     </h:body>
 </html>

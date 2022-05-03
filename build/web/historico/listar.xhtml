@@ -6,13 +6,46 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Listar Historicos</title>
     </h:head>
     <h:body>
         <h:form>
-        <h:commandButton action="novo" value="Adicionar Historico"/>
+            <h:dataTable value="#{historicoMB.todosOsHistoricos}" var="historico">
+                <h:column>
+                    <f:facet name="header">Operacao</f:facet>
+                        #{historicoMB.historico.operacao}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Tipo de Movimento</f:facet>
+                        #{historicoMB.historico.tipoMovimento}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Data e Hora</f:facet>
+                        #{historicoMB.historico.dataHora}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Valor</f:facet>
+                        #{historicoMB.historico.valor}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Observacao</f:facet>
+                        #{historicoMB.historico.observacao}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Conta</f:facet>
+                        #{historicoMB.historico.contaId}
+                </h:column>
+                <h:column>
+                    <h:commandLink value="editar" action="#{historicoMB.editar(historico)}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="excluir" action="#{historicoMB.excluir(historico)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton action="#{historicoMB.novo()}" value="Adicionar Historico"/>
         </h:form>
     </h:body>
 </html>

@@ -6,13 +6,30 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Listar usuario</title>
     </h:head>
     <h:body>
         <h:form>
-        <h:commandButton action="novo" value="Adicionar Usuario"/>
+            <h:dataTable value="#{usuarioMB.todosOsUsuarios}" var="usuario">
+                <h:column>
+                    <f:facet name="header">Usuário</f:facet>
+                        #{usuarioMB.usuario.login}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Senha</f:facet>
+                        #{usuarioMB.usuario.senha}
+                </h:column>
+                <h:column>
+                    <h:commandLink value="editar" action="#{usuarioMB.editar(usuario)}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="excluir" action="#{usuarioMB.excluir(usuario)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton action="#{usuarioMB.novo()}" value="Adicionar Usuario"/>
         </h:form>
     </h:body>
 </html>

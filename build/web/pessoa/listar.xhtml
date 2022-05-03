@@ -6,13 +6,58 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Listar Pessoas</title>
     </h:head>
     <h:body>
         <h:form>
-        <h:commandButton action="novo" value="Adicionar Pessoas"/>
+            <h:dataTable value="#{pessoaMB.todosAsPessoas}" var="pessoa">
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                        #{pessoaMB.pessoa.nome}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Telefone</f:facet>
+                        #{pessoaMB.pessoa.telefone}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                        #{pessoaMB.pessoa.email}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Tipo de Pessoa</f:facet>
+                        #{pessoaMB.pessoa.tipoPessoa}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CPF</f:facet>
+                        #{pessoaMB.pessoa.cpf}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">CNPJ</f:facet>
+                        #{pessoaMB.pessoa.cnpj}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Data de Nascimento</f:facet>
+                        #{pessoaMB.pessoa.dataNascimento}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Sexo</f:facet>
+                        #{pessoaMB.pessoa.sexo}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Id usuario</f:facet>
+                        #{pessoaMB.pessoa.usuarioId}
+                </h:column>
+                <h:column>
+                    <h:commandLink value="editar" action="#{pessoaMB.editar(pessoa)}"/>
+                </h:column>
+                <h:column>
+                    <h:commandLink value="excluir" action="#{pessoaMB.excluir(pessoa)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton action="#{pessoaMB.novo()}" value="Adicionar Pessoa"/>
         </h:form>
     </h:body>
 </html>

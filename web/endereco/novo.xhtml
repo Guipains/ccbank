@@ -13,14 +13,15 @@ and open the template in the editor.
     <h:body>
         <h1>Novo Endereco</h1>
         <h:form>
-            Logradouro: <h:inputText id="logradouro" value="#{endereco.logradouro}"/><br/>
-            Numero: <h:inputText id="numero" value="#{endereco.numero}"/><br/>
-            Complemento: <h:inputText id="complemento" value="#{endereco.complemento}"/><br/>
-            Bairro: <h:inputText id="bairro" value="#{endereco.bairro}"/><br/>
-            CEP: <h:inputText id="cep" value="#{endereco.cep}"/><br/>
-            ID pessoa: <h:inputText id="idpessoa" value="#{endereco.pessoaId}"/><br/>
+            Logradouro: <h:inputText id="logradouro" value="#{enderecoMB.endereco.logradouro}"/><br/>
+            Numero: <h:inputText id="numero" value="#{enderecoMB.endereco.numero}"/><br/>
+            Complemento: <h:inputText id="complemento" value="#{enderecoMB.endereco.complemento}"/><br/>
+            Bairro: <h:inputText id="bairro" value="#{enderecoMB.endereco.bairro}"/><br/>
+            CEP: <h:inputText id="cep" value="#{enderecoMB.endereco.cep}"/><br/>
+            ID cidade: <h:inputText id="idcidade" value="#{enderecoMB.endereco.cidade}"/><br/>
+            ID pessoa: <h:inputText id="idpessoa" value="#{enderecoMB.endereco.pessoaId}"/><br/>
             
-            <h:commandButton value="Salvar" action="#{enderecoMB.inserir()}"/> 
+            <h:commandButton value="Salvar" action="#{enderecoMB.inserirOuAtualizar()}"/> 
         </h:form>
     </h:body>
 </html>

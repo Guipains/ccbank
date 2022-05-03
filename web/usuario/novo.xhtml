@@ -13,9 +13,9 @@ and open the template in the editor.
     <h:body>
         <h1>Novo Usuario</h1>
         <h:form>
-            Usuario: <h:inputText id="usuario" value="#{usuario.login}"/><br/>
-            Senha: <h:inputText id="senha" value="#{usuario.senha}"/><br/>
-            <h:commandButton value="Salvar" action="#{usuarioMB.inserir()}"/> 
+            Usuario: <h:inputText id="usuario" value="#{usuarioMB.usuario.login}"/><br/>
+            Senha: <h:inputText id="senha" value="#{usuarioMB.usuario.senha}"/><br/>
+            <h:commandButton value="Salvar" action="#{usuarioMB.inserirOuAtualizar()}"/> 
         </h:form>
     </h:body>
 </html>

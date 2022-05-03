@@ -13,16 +13,17 @@ and open the template in the editor.
     <h:body>
         <h1>Nova Pessoa</h1>
         <h:form>
-            Nome: <h:inputText id="nome" value="#{pessoa.nome}"/><br/>
-            Telefone: <h:inputText id="telefone" value="#{pessoa.telefone}"/><br/>
-            Email: <h:inputText id="email" value="#{pessoa.email}"/><br/>
-            Tipo de pessoa: <h:inputText id="tipodepessoa" value="#{pessoa.tipoPessoa}"/><br/>
-            CPF: <h:inputText id="cpf" value="#{pessoa.cpf}"/><br/>
-            CNPJ: <h:inputText id="cnpj" value="#{pessoa.cnpj}"/><br/>
-            Data Nascimento: <h:inputText id="datanascimento" value="#{pessoa.dataNascimento}"/><br/>
-            Sexo: <h:inputText id="sexo" value="#{pessoa.sexo}"/><br/>
+            Nome: <h:inputText id="nome" value="#{pessoaMB.pessoa.nome}"/><br/>
+            Telefone: <h:inputText id="telefone" value="#{pessoaMB.pessoa.telefone}"/><br/>
+            Email: <h:inputText id="email" value="#{pessoaMB.pessoa.email}"/><br/>
+            Tipo de pessoa: <h:inputText id="tipodepessoa" value="#{pessoaMB.pessoa.tipoPessoa}"/><br/>
+            CPF: <h:inputText id="cpf" value="#{pessoaMB.pessoa.cpf}"/><br/>
+            CNPJ: <h:inputText id="cnpj" value="#{pessoaMB.pessoa.cnpj}"/><br/>
+            Data Nascimento: <h:inputText id="datanascimento" value="#{pessoaMB.pessoa.dataNascimento}"/><br/>
+            Sexo: <h:inputText id="sexo" value="#{pessoaMB.pessoa.sexo}"/><br/>
+            Id Usuario: <h:inputText id="idusuario" value="#{pessoaMB.pessoa.usuarioId}"/><br/>
             
-            <h:commandButton value="Salvar" action="#{pessoaMB.inserir()}"/> 
+            <h:commandButton value="Salvar" action="#{pessoaMB.inserirOuAtualizar()}"/> 
         </h:form>
     </h:body>
 </html>

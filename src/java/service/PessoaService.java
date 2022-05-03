@@ -5,10 +5,31 @@
  */
 package service;
 
+import dao.PessoaDao;
+import domain.Pessoa;
+import java.util.List;
+
 /**
  *
  * @author Aluno
  */
 public class PessoaService {
+    private PessoaDao pessoaDao;
     
+    public PessoaService() {
+        pessoaDao = new PessoaDao();
+    }
+    
+    public void inserir(Pessoa pessoa){
+        pessoaDao.insert(pessoa);
+    }
+    public void atualizar(Pessoa pessoa){
+        pessoaDao.update(pessoa);
+    }
+    public void excluir(Pessoa pessoa){
+        pessoaDao.delete(pessoa);
+    }
+    public List<Pessoa> listartodasaspessoas(){
+        return pessoaDao.findAll();
+    }
 }

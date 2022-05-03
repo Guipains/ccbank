@@ -5,11 +5,12 @@
  */
 package controller;
 
-import dao.HistoricoDao;
 import domain.Historico;
 import java.io.Serializable;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import service.HistoricoService;
 
 /**
  *
@@ -20,19 +21,49 @@ import javax.faces.bean.RequestScoped;
 public class HistoricoController implements Serializable {
     
     private Historico historico;
-    private final HistoricoDao historicoDao;
+    private HistoricoService historicoService;
     
 
     public HistoricoController() {
-        this.historicoDao = new HistoricoDao();
+        this.historico = new Historico();
+        this.historicoService = new HistoricoService();
     }
     
-    public String inserir(){
-        historicoDao.insert(historico);
-        return "index.xhtml";
+    public String inserirOuAtualizar(){
+        if((historico.getId() == null)){
+            historicoService.inserir(historico);
+        }else{
+            historicoService.atualizar(historico);
+        }
+        return "listar.xhtml";
+    }
+     public String novo(){
+        historico = new Historico();
+        return "novo.xhtml";
+    }
+    
+    public String editar(Historico historico){
+        this.historico = historico;
+        
+        return "novo.xhtml";
+    }
+    
+    public String excluir(Historico historico){
+        this.historico = historico;
+        historicoService.excluir(historico);
+        
+        return "listar.xhtml";
+    }
+    
+    public List<Historico> getTodosOsHistoricos(){
+        return historicoService.listartodososhistorios();
     }
 
-    public Historico getCidade() {
+    public Historico getHistorico() {
         return historico;
+    }
+
+    public void setHistorico(Historico historico) {
+        this.historico = historico;
     }
 }

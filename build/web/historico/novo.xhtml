@@ -13,13 +13,13 @@ and open the template in the editor.
     <h:body>
         <h1>Novo Historico</h1>
         <h:form>
-            Operação: <h:inputText id="operacao" value="#{historico.operacao}"/><br/>
-            Tipo de movimento: <h:inputText id="tipomovimentacao" value="#{historico.tipoMovimento}"/><br/>
-            Data e Hora: <h:inputText id="datahora" value="#{historico.dataHora}"/><br/>
-            Valor: <h:inputText id="valor" value="#{historico.valor}"/><br/>
-            Observação: <h:inputText id="obsevaocao" value="#{historico.observacao}"/><br/>
-            ID da conta : <h:inputText id="idconta" value="#{historico.contaId}"/><br/>
-            <h:commandButton value="Salvar" action="#{historicoMB.inserir()}"/><br/> 
+            Operação: <h:inputText id="operacao" value="#{historicoMB.historico.operacao}"/><br/>
+            Tipo de movimento: <h:inputText id="tipomovimentacao" value="#{historicoMB.historico.tipoMovimento}"/><br/>
+            Data e Hora: <h:inputText id="datahora" value="#{historicoMB.historico.dataHora}"/><br/>
+            Valor: <h:inputText id="valor" value="#{historicoMB.historico.valor}"/><br/>
+            Observação: <h:inputText id="obsevaocao" value="#{historicoMB.historico.observacao}"/><br/>
+            ID da conta : <h:inputText id="idconta" value="#{historicoMB.historico.contaId}"/><br/>
+            <h:commandButton value="Salvar" action="#{historicoMB.inserirOuAtualizar()}"/><br/> 
         </h:form>
     </h:body>
 </html>
