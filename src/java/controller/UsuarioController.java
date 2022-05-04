@@ -5,7 +5,6 @@
  */
 package controller;
 
-import dao.UsuarioDao;
 import domain.Usuario;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -30,6 +29,7 @@ public class UsuarioController {
     
     public String inserirOuAtualizar(){
         if((usuario.getId() == null)){
+            System.out.println("aqui");
             usuarioService.inserir(usuario);
         }else{
             usuarioService.atualizar(usuario);
